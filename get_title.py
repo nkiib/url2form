@@ -33,6 +33,3 @@ def get_title(url,var = 0):
     return ret
 
 
-
-print(get_title('http://nishikiout.com'))
-print(get_title('hta[gka]'))

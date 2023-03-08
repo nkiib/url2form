@@ -1,4 +1,5 @@
 import tkinter
+from tkinter import scrolledtext
 import get_title
 
 def format_select():
@@ -18,12 +19,14 @@ def format_select():
 
 def convert():
     url = url_form.get()
-    summary.delete(0, tkinter.END) 
+    summary.delete("0.0", tkinter.END) 
     summary.insert(tkinter.END,get_title.get_title(url,var.get())) # type: ignore
+
+
 # Generate Window
 window = tkinter.Tk()
 window.title('Tlooks url2form')
-window.geometry('480x200')
+window.geometry('480x250')
 
 # UI form
 url_form = tkinter.Entry(width=60)
@@ -34,7 +37,9 @@ run_button = tkinter.Button(text='Run',width = 30,command=convert)
 run_button.pack()
 
 # Output Entry
-summary = tkinter.Entry(width=60)
+summary = scrolledtext.ScrolledText(
+    width=60, 
+    height=3)
 summary.pack()
 
 # format select

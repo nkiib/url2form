@@ -8,10 +8,13 @@ def get_title(url,var = 0):
         response = requests.get(url)  # URLからHTMLを取得する
         soup = BeautifulSoup(response.text, "html.parser")  # HTMLをBeautifulSoupオブジェクトに変換する        
     except:
-        return '<Failed>This URL is of a form that cannot be processed or does not exist.'
+        return '<Error>This URL is of a form that cannot be processed or does not exist.<ErrCode -1>'
 
     # タイトルを取得
-    title = soup.title.string
+    try:
+        title = soup.title.string
+    except:
+        return '<Error>This URL could not be processed.<ErrCode -2>'
     # 日付を取得
     dt = datetime.datetime.now()
     year = dt.year
@@ -31,5 +34,3 @@ def get_title(url,var = 0):
         ret = title
 
     return ret
-
-

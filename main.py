@@ -5,22 +5,15 @@ import get_title
 def format_select():
     check = var.get()
 
-    if check == 1:
-        radio_2.configure(state='normal')
-        radio_3.configure(state='normal')
-
-    elif check == 2:
-        radio_1.configure(state='normal')
-        radio_3.configure(state='normal')
-
-    elif check == 3:
-        radio_1.configure(state='normal')
-        radio_2.configure(state='normal')
 
 def convert():
     url = url_form.get()
     summary.delete("0.0", tkinter.END) 
-    summary.insert(tkinter.END,get_title.get_title(url,var.get())) # type: ignore
+    summary.insert(tkinter.END,get_title.get_title(url,var.get())) 
+
+def clear():
+    url_form.delete(0,tkinter.END)
+    summary.delete("0.0", tkinter.END)
 
 
 # Generate Window
@@ -35,6 +28,10 @@ url_form.pack()
 # Run Button
 run_button = tkinter.Button(text='Run',width = 30,command=convert)
 run_button.pack()
+
+# clear Button
+clear_button = tkinter.Button(text='Clear',width = 30,command=clear)
+clear_button.pack()
 
 # Output Entry
 summary = scrolledtext.ScrolledText(

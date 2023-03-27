@@ -8,7 +8,7 @@ def get_title(url,var = 0):
         response = requests.get(url)  # URLからHTMLを取得する
     except:
         try:
-            url = f'http://{url}'
+            url = f'http://{url}' # プロトコル指定がない場合これで追加
             response = requests.get(url)
         except:
             return '<Error>This URL is of a form that cannot be processed or does not exist.<ErrCode -1>'

@@ -6,10 +6,15 @@ import datetime
 def get_title(url,var = 0):
     try:
         response = requests.get(url)  # URLからHTMLを取得する
-        soup = BeautifulSoup(response.text, "html.parser")  # HTMLをBeautifulSoupオブジェクトに変換する        
     except:
-        return '<Error>This URL is of a form that cannot be processed or does not exist.<ErrCode -1>'
-
+        try:
+            url = f'http://{url}'
+            response = requests.get(url)
+        except:
+            return '<Error>This URL is of a form that cannot be processed or does not exist.<ErrCode -1>'
+    
+    soup = BeautifulSoup(response.text, "html.parser")
+    
     # タイトルを取得
     try:
         title = soup.title.string
@@ -21,7 +26,6 @@ def get_title(url,var = 0):
     month = dt.month
     day = dt.day
 
-    ret = title
     if var == 0:
         ret = title
     elif var == 1: 
@@ -30,6 +34,8 @@ def get_title(url,var = 0):
         ret = f'Auther({year}/{month}/{day}).「{title}」.{url}.({year}/{month}/{day}閲覧)'
     elif var == 3:
         ret = f'<a href="{url}" title="{title}">{title}</a>'
+    elif var == 4:
+        ret = f'[{title}]({url})'
     else:
         ret = title
 

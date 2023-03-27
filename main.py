@@ -50,6 +50,8 @@ radio_2 = tkinter.Radiobutton(text='Author(Update Date).「title」.URL.(yyyy,mm
 radio_2.pack()
 radio_3 = tkinter.Radiobutton(text='HTML Format for Markdown(<a href="URL" title="title">title</a>)',value=3, variable=var, command=format_select)
 radio_3.pack()
+radio_4 = tkinter.Radiobutton(text= 'Markdown(["title"]("URL"))',value=4, variable=var, command=format_select)
+radio_4.pack()
 
 
 

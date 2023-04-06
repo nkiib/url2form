@@ -15,7 +15,7 @@ def clear():
     url_form.delete(0,tkinter.END)
     summary.delete("0.0", tkinter.END)
 
-# Generate Window and Start SA
+# Generate Window and Start 
 window = tkinter.Tk()
 window.title('Tlooks url2form')
 window.geometry('480x250')

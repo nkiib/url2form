@@ -5,7 +5,6 @@ import get_title
 def format_select():
     check = var.get()
 
-
 def convert():
     url = url_form.get()
     summary.delete("0.0", tkinter.END) 

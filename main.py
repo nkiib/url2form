@@ -51,6 +51,4 @@ radio_3.pack()
 radio_4 = tkinter.Radiobutton(text= 'Markdown(["title"]("URL"))',value=4, variable=var, command=format_select)
 radio_4.pack()
 
-
-
 window.mainloop()

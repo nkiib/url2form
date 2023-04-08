@@ -2,14 +2,17 @@ import tkinter
 from tkinter import scrolledtext
 import get_title
 
+# フォーマットを選択する
 def format_select():
     check = var.get()
 
+# 変換
 def convert():
     url = url_form.get()
     summary.delete("0.0", tkinter.END) 
     summary.insert(tkinter.END,get_title.get_title(url,var.get())) 
 
+# フォームをクリアする
 def clear():
     url_form.delete(0,tkinter.END)
     summary.delete("0.0", tkinter.END)
